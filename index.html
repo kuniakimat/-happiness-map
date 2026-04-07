@@ -9,7 +9,7 @@
 <style>
 :root{color-scheme:light only}
 *{box-sizing:border-box;margin:0;padding:0}
-html{background:#fff!important}body{background:#fff!important;color:#111!important;font-family:'Noto Sans JP',sans-serif;font-size:14px;line-height:1.7}
+html{background:#fff!important}body{background:#fff!important;colo:#111!important;font-family:'Noto Sans JP',sans-serif;font-size:14px;line-height:1.7}
 .wrap{max-width:600px;margin:0 auto;padding:0 20px}
 .scr{display:none}.scr.on{display:block}
 #prog{position:fixed;top:0;left:0;height:2px;background:#111;transition:width .4s;z-index:100}
@@ -909,7 +909,7 @@ function sendResults(typeNum){
     document.body.appendChild(ifr);
     var form=document.createElement("form");
     form.method="GET";
-    form.action="https://script.google.com/macros/s/AKfycbwibPeeD6kCM1Nnltlyc410ZGFZ5UqUoNj94l6ZweWshxXjEhOkEaB_V3N8aQUe8XI/exec";
+    form.action="https://script.google.com/macros/s/AKfycbzGeT234Zud7Xl1-E5brJ95uuBQNPceu-uNCRJpieNOuf40qaOj15WchxeazmYC-HBP/exec";
     form.target=ifr.name;
     form.style.display="none";
     for(var k in fields){
