@@ -422,6 +422,10 @@ html{background:#fff!important}body{background:#fff!important;color:#111!importa
 </div>
 
 <div id="pg-q" class="scr">
+  <div style="position:sticky;top:0;background:#fff;z-index:50;border-bottom:1px solid #e8e8e8;padding:10px 20px;display:flex;align-items:center;gap:10px">
+    <span style="font-size:10px;letter-spacing:.16em;color:#aaa;text-transform:uppercase;flex-shrink:0">幸福の地図</span>
+    <span style="font-size:11px;color:#999;font-weight:300">各体験から、どのくらい幸福を感じるかを選んでください</span>
+  </div>
   <div class="wrap">
     <div id="q-body"></div>
     <div class="q-warn" id="q-warn">未回答の項目があります。全項目を選択してから次へ進んでください。</div>
@@ -446,14 +450,14 @@ html{background:#fff!important}body{background:#fff!important;color:#111!importa
       </div>
       <div class="mx-axis">← 時間相（瞬 進 頂 回 久）→</div>
       <div class="mx-legend">
-        <span>ほとんどない</span>
+        <span>幸福を感じない</span>
         <div class="legend-steps">
           <div class="ls" style="background:#fff;border:1px solid #e0e0e0"></div>
           <div class="ls" style="background:#d8d8d8"></div>
           <div class="ls" style="background:#b0b0b0"></div>
           <div class="ls" style="background:#555"></div>
         </div>
-        <span>核心</span>
+        <span>幸福の核心</span>
       </div>
     </div>
     <div id="summary-block" style="margin-top:20px"></div>
@@ -700,14 +704,16 @@ function renderScreen(idx){
     var cell=page[q];var s=scores[cell.ki][cell.ji];var uid=cell.ki+'-'+cell.ji;
     itemsHtml+='<div class="q-item"><div class="q-item-row"><div class="q-item-k">'+cell.kanji+'</div><div class="q-item-text">'+cell.text+'</div></div>'
       +'<div class="scale-wrap" id="sw-'+uid+'">'
-      +'<button class="scale-btn'+(s===1?' v1':'')+'" onclick="setScore('+cell.ki+','+cell.ji+',1)">ほとんど<br>ない</button>'
-      +'<button class="scale-btn'+(s===2?' v2':'')+'" onclick="setScore('+cell.ki+','+cell.ji+',2)">少し<br>感じる</button>'
-      +'<button class="scale-btn'+(s===3?' v3':'')+'" onclick="setScore('+cell.ki+','+cell.ji+',3)">かなり<br>感じる</button>'
-      +'<button class="scale-btn'+(s===4?' v4':'')+'" onclick="setScore('+cell.ki+','+cell.ji+',4)">これが<br>核心だ</button>'
+      +'<button class="scale-btn'+(s===1?' v1':'')+'" onclick="setScore('+cell.ki+','+cell.ji+',1)">幸福を<br>感じない</button>'
+      +'<button class="scale-btn'+(s===2?' v2':'')+'" onclick="setScore('+cell.ki+','+cell.ji+',2)">少し感じる</button>'
+      +'<button class="scale-btn'+(s===3?' v3':'')+'" onclick="setScore('+cell.ki+','+cell.ji+',3)">かなり感じる</button>'
+      +'<button class="scale-btn'+(s===4?' v4':'')+'" onclick="setScore('+cell.ki+','+cell.ji+',4)">幸福の核心</button>'
       +'</div></div>';
   }
   document.getElementById('q-body').innerHTML='<div class="scr-header"><div class="scr-progress"><span class="scr-prog-label">Q'+(idx+1)+' / 5</span><div class="scr-segs">'+segs+'</div></div><span class="scr-q-num">問 '+(idx*5+1)+' 〜 '+(idx*5+5)+'　/ 25</span></div><div class="q-items">'+itemsHtml+'</div>';
-  document.getElementById('btn-back').style.display=idx>0?'':'none';
+  document.getElementById('btn-back').style.display='';
+  document.getElementById('btn-back').onclick=idx>0?prevScreen:function(){showScreen('pg-land');};
+  document.getElementById('btn-back').textContent=idx>0?'← 戻る':'← トップへ';
   document.getElementById('btn-next').style.display=idx<4?'':'none';
   document.getElementById('btn-done').style.display=idx===4?'':'none';
 }
