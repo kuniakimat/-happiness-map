@@ -9,7 +9,7 @@
 <style>
 :root{color-scheme:light only}
 *{box-sizing:border-box;margin:0;padding:0}
-html{background:#fff!important}body{background:#fff!important;colo:#111!important;font-family:'Noto Sans JP',sans-serif;font-size:14px;line-height:1.7}
+html{background:#fff!important}body{background:#fff!important;color:#111!important;font-family:'Noto Sans JP',sans-serif;font-size:14px;line-height:1.7}
 .wrap{max-width:600px;margin:0 auto;padding:0 20px}
 .scr{display:none}.scr.on{display:block}
 #prog{position:fixed;top:0;left:0;height:2px;background:#111;transition:width .4s;z-index:100}
@@ -893,33 +893,22 @@ function sendResults(typeNum){
     var core=coreCell();
     var s=[];
     for(var ki=0;ki<5;ki++)for(var ji=0;ji<5;ji++)s.push(scores[ki][ji]);
-    var fields={
+    var payload={
       name: userName||"匿名",
-      type: String(typeNum),
+      type: typeNum,
       typeName: TYPES[typeNum].name,
-      lit: String(getLitCells()),
+      lit: getLitCells(),
       coreCell: KL[core.ki]+"x"+JL[core.ji]+"("+CELL_K[core.ki+"-"+core.ji]+")",
       domK: KL[getDomK()],
       domJ: JL[getDomJ()],
-      scores: s.join("-")
+      scores: s
     };
-    var ifr=document.createElement("iframe");
-    ifr.name="gas_ifr_"+Date.now();
-    ifr.style.cssText="display:none;width:0;height:0;border:0;position:absolute";
-    document.body.appendChild(ifr);
-    var form=document.createElement("form");
-    form.method="GET";
-    form.action="https://script.google.com/macros/s/AKfycbzGeT234Zud7Xl1-E5brJ95uuBQNPceu-uNCRJpieNOuf40qaOj15WchxeazmYC-HBP/exec";
-    form.target=ifr.name;
-    form.style.display="none";
-    for(var k in fields){
-      var inp=document.createElement("input");
-      inp.type="hidden";inp.name=k;inp.value=fields[k];
-      form.appendChild(inp);
-    }
-    document.body.appendChild(form);
-    form.submit();
-    setTimeout(function(){try{document.body.removeChild(form);document.body.removeChild(ifr);}catch(e){}},6000);
+    fetch("https://script.google.com/macros/s/AKfycbzGeT234Zud7Xl1-E5brJ95uuBQNPceu-uNCRJpieNOuf40qaOj15WchxeazmYC-HBP/exec",{
+      method:"POST",
+      mode:"no-cors",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(payload)
+    }).catch(function(){});
   }catch(e){}
 }
 
@@ -946,7 +935,6 @@ function showResults(){
   buildCore();
   buildNextHappiness();
   buildExperiment();
-  sendResults(determineType());
 }
 
 function restart(){
