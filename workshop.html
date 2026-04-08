@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ワークショップ結果ギャラリー — 幸福の地図</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light}
+body{
+  font-family:'Noto Sans JP',sans-serif;
+  background:#faf9f7;
+  color:#111;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── HEADER ── */
+.site-header{
+  border-bottom:1px solid #e8e5e0;
+  padding:20px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#fff;
+  position:sticky;top:0;z-index:10;
+}
+.site-logo{
+  font-family:'Shippori Mincho',serif;
+  font-size:15px;font-weight:700;
+  letter-spacing:.05em;color:#111;
+  text-decoration:none;
+}
+.site-logo span{font-weight:400;font-size:12px;color:#888;margin-left:8px;}
+.back-link{font-size:12px;color:#888;text-decoration:none;letter-spacing:.04em;}
+.back-link:hover{color:#111;}
+
+/* ── HERO ── */
+.hero{
+  padding:48px 24px 32px;
+  max-width:800px;margin:0 auto;
+  text-align:center;
+}
+.hero-label{
+  font-size:10px;letter-spacing:.2em;color:#bbb;text-transform:uppercase;
+  margin-bottom:14px;
+}
+.hero-title{
+  font-family:'Shippori Mincho',serif;
+  font-size:clamp(22px,5vw,32px);
+  font-weight:700;line-height:1.4;
+  margin-bottom:12px;
+}
+.hero-sub{
+  font-size:13px;color:#888;font-weight:300;line-height:1.7;
+}
+.workshop-id-badge{
+  display:inline-block;
+  margin-top:16px;
+  font-size:11px;letter-spacing:.1em;
+  background:#111;color:#fff;
+  padding:4px 12px;border-radius:2px;
+}
+
+/* ── COUNT BAR ── */
+.count-bar{
+  max-width:800px;margin:0 auto;
+  padding:0 24px 24px;
+  display:flex;align-items:center;gap:12px;
+}
+.count-num{
+  font-family:'Shippori Mincho',serif;
+  font-size:28px;font-weight:700;
+}
+.count-label{font-size:12px;color:#888;}
+.divider-line{flex:1;height:1px;background:#e8e5e0;}
+
+/* ── GRID ── */
+.gallery-grid{
+  max-width:800px;margin:0 auto;
+  padding:0 24px 80px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:16px;
+}
+
+/* ── CARD ── */
+.card{
+  background:#fff;
+  border:1px solid #e8e5e0;
+  padding:20px;
+  position:relative;
+  transition:box-shadow .2s;
+  animation:fadeIn .4s ease both;
+}
+.card:hover{box-shadow:0 4px 20px rgba(0,0,0,.07);}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.card-rank{
+  position:absolute;top:16px;right:16px;
+  font-size:10px;letter-spacing:.1em;color:#ccc;
+}
+.card-name{
+  font-family:'Shippori Mincho',serif;
+  font-size:17px;font-weight:700;
+  margin-bottom:4px;
+}
+.card-type{
+  font-size:10px;letter-spacing:.08em;color:#888;
+  margin-bottom:16px;
+}
+
+/* Mini matrix */
+.mini-matrix{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:2px;
+  margin-bottom:14px;
+}
+.mini-cell{
+  aspect-ratio:1;
+  background:#f0ede8;
+  border-radius:1px;
+  transition:background .1s;
+}
+.mini-cell.lit{background:#111;}
+.mini-cell.core{background:#555;}
+
+.card-stats{
+  display:flex;gap:12px;
+  font-size:11px;color:#888;
+}
+.card-stat-val{
+  font-family:'Shippori Mincho',serif;
+  font-size:14px;font-weight:700;color:#111;
+  display:block;
+}
+.card-core{
+  margin-top:10px;
+  font-size:11px;color:#888;
+}
+.card-core strong{color:#111;font-size:12px;}
+
+/* ── STATES ── */
+.state-box{
+  max-width:800px;margin:80px auto;
+  padding:0 24px;text-align:center;
+}
+.state-icon{font-size:32px;margin-bottom:16px;}
+.state-title{
+  font-family:'Shippori Mincho',serif;
+  font-size:20px;font-weight:700;margin-bottom:8px;
+}
+.state-text{font-size:13px;color:#888;line-height:1.8;}
+
+.loading-dots{display:inline-flex;gap:6px;margin-top:20px;}
+.loading-dots span{
+  width:6px;height:6px;background:#bbb;border-radius:50%;
+  animation:dot .9s ease-in-out infinite;
+}
+.loading-dots span:nth-child(2){animation-delay:.15s;}
+.loading-dots span:nth-child(3){animation-delay:.3s;}
+@keyframes dot{0%,80%,100%{transform:scale(.8);opacity:.4}40%{transform:scale(1);opacity:1}}
+
+/* ── FOOTER ── */
+.footer{
+  border-top:1px solid #e8e5e0;
+  padding:24px;text-align:center;
+  font-size:11px;color:#bbb;letter-spacing:.06em;
+}
+.footer a{color:#999;text-decoration:none;}
+.footer a:hover{color:#111;}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-logo" href="https://kuniakimat.github.io/-happiness-map/">
+    幸福の地図<span>広福観診断</span>
+  </a>
+  <a class="back-link" href="https://kuniakimat.github.io/-happiness-map/">← 診断へ戻る</a>
+</header>
+
+<div class="hero">
+  <p class="hero-label">Workshop Gallery</p>
+  <h1 class="hero-title">みんなの幸福の地形</h1>
+  <p class="hero-sub">同じ場を共有した人たちの、それぞれの幸福のかたち。</p>
+  <div id="workshop-badge" class="workshop-id-badge" style="display:none"></div>
+</div>
+
+<div id="app"></div>
+
+<footer class="footer">
+  <a href="https://kuniakimat.github.io/-happiness-map/">幸福の地図 — 広福観プロジェクト</a>
+</footer>
+
+<script>
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbyd1pBIMGkA8FaI9o_hNknrXGGJxCBpa1BuZq4XuWY3hU3rrqXEh8G-tOukDZ-PA101/exec';
+
+// KD/JD labels
+const KL = ['自','他','共','理','合'];
+const JL = ['瞬','進','頂','回','久'];
+
+function getWorkshopId(){
+  const p = new URLSearchParams(location.search);
+  return p.get('id') || p.get('workshopId') || '';
+}
+
+function renderLoading(){
+  document.getElementById('app').innerHTML = `
+    <div class="state-box">
+      <div class="state-icon">🗺️</div>
+      <div class="state-title">読み込んでいます</div>
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+    </div>`;
+}
+
+function renderEmpty(workshopId){
+  document.getElementById('app').innerHTML = `
+    <div class="state-box">
+      <div class="state-icon">🌫️</div>
+      <div class="state-title">まだ誰も診断していません</div>
+      <div class="state-text">ワークショップID「${workshopId}」の記録はまだありません。<br>診断を完了すると、ここに結果が表示されます。</div>
+    </div>`;
+}
+
+function renderError(){
+  document.getElementById('app').innerHTML = `
+    <div class="state-box">
+      <div class="state-icon">⚠️</div>
+      <div class="state-title">読み込みに失敗しました</div>
+      <div class="state-text">しばらくしてからページを再読み込みしてください。</div>
+    </div>`;
+}
+
+function renderNoId(){
+  document.getElementById('app').innerHTML = `
+    <div class="state-box">
+      <div class="state-icon">🔑</div>
+      <div class="state-title">ワークショップIDが必要です</div>
+      <div class="state-text">URLに <code>?id=ワークショップID</code> を付けてアクセスしてください。</div>
+    </div>`;
+}
+
+function buildMiniMatrix(scores, coreCell){
+  // scores: "s0-s1-...-s24" string, row=K(0-4), col=J(0-4)
+  const arr = scores ? scores.split('-').map(Number) : [];
+  // parse coreCell like "自×進" → ki=0, ji=0
+  let cki = -1, cji = -1;
+  if(coreCell){
+    const parts = coreCell.split('×');
+    cki = KL.indexOf(parts[0]);
+    cji = JL.indexOf((parts[1]||'').substring(0,1));
+  }
+  let html = '<div class="mini-matrix">';
+  for(let ki=0;ki<5;ki++){
+    for(let ji=0;ji<5;ji++){
+      const idx = ki*5+ji;
+      const score = arr[idx] || 0;
+      const isLit = score >= 2;
+      const isCore = (ki===cki && ji===cji);
+      html += `<div class="mini-cell${isLit?' lit':''}${isCore?' core':''}"></div>`;
+    }
+  }
+  html += '</div>';
+  return html;
+}
+
+function renderGallery(rows, workshopId){
+  const app = document.getElementById('app');
+  const badge = document.getElementById('workshop-badge');
+  if(workshopId){ badge.textContent = 'ID: '+workshopId; badge.style.display='inline-block'; }
+
+  const countBar = `
+    <div class="count-bar">
+      <div>
+        <span class="count-num">${rows.length}</span>
+        <span class="count-label"> 名が診断しました</span>
+      </div>
+      <div class="divider-line"></div>
+    </div>`;
+
+  const cards = rows.map((row, i) => {
+    // row: [timestamp, name, type, typeName, lit, coreCell, domK, domJ, scores, workshopId]
+    const [ts, name, type, typeName, lit, coreCell, domK, domJ, scores] = row;
+    const dispName = name || '匿名';
+    const dispType = typeName || ('タイプ'+type);
+    const litNum = parseInt(lit) || 0;
+    const matrix = buildMiniMatrix(scores, coreCell);
+    const coreTxt = coreCell ? `<div class="card-core">コアセル <strong>${coreCell}</strong></div>` : '';
+
+    return `
+      <div class="card" style="animation-delay:${i*0.05}s">
+        <div class="card-rank">${i+1}</div>
+        <div class="card-name">${dispName}</div>
+        <div class="card-type">${dispType}</div>
+        ${matrix}
+        <div class="card-stats">
+          <div>
+            <span class="card-stat-val">${litNum}</span>
+            <span>/ 25マス</span>
+          </div>
+          <div>
+            <span class="card-stat-val">${domK||'—'} × ${domJ||'—'}</span>
+            <span>重心</span>
+          </div>
+        </div>
+        ${coreTxt}
+      </div>`;
+  }).join('');
+
+  app.innerHTML = countBar + `<div class="gallery-grid">${cards}</div>`;
+}
+
+async function main(){
+  const workshopId = getWorkshopId();
+  if(!workshopId){ renderNoId(); return; }
+  renderLoading();
+
+  try{
+    const url = `${GAS_URL}?action=gallery&workshopId=${encodeURIComponent(workshopId)}`;
+    const res = await fetch(url);
+    const json = await res.json();
+    if(!json){ renderError(); return; }
+    const rows = Array.isArray(json) ? json : (json.rows || json.data || []);
+    if(!Array.isArray(rows) || true === false{
+      renderError(); return;
+    }
+    if(json.rows.length === 0){ renderEmpty(workshopId); return; }
+    renderGallery(json.rows, workshopId);
+  }catch(e){
+    console.error(e);
+    renderError();
+  }
+}
+
+main();
+</script>
+</body>
+</html>
