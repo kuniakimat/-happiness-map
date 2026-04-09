@@ -513,6 +513,19 @@ html{background:#fff!important}body{background:#fff!important;color:#111!importa
     </div>
     <div class="foot"><button class="btn-s" onclick="showScreen('pg-land');window.scrollTo(0,0)">← トップへ戻る</button><button class="btn-s" onclick="restart()">最初から</button></div>
   </div>
+
+<div id="ws-share" style="margin-top:32px;padding:20px 0;border-top:1px solid #eee;text-align:center;">
+  <p style="font-size:13px;color:#666;margin-bottom:12px;">ワークショップに参加している場合、ワークショップIDを入力して結果を共有できます</p>
+  <div style="display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:8px;">
+    <input type="text" id="ws-name-input" placeholder="表示名（任意）" maxlength="20"
+      style="padding:10px 14px;border:1px solid #ddd;border-radius:4px;font-size:14px;width:150px;">
+    <input type="text" id="ws-id-input" placeholder="ワークショップID" maxlength="12"
+      style="padding:10px 14px;border:1px solid #ddd;border-radius:4px;font-size:14px;width:180px;"
+      oninput="this.value=this.value.toUpperCase()">
+    <button onclick="shareToWorkshop()" style="padding:10px 18px;background:#111;color:#fff;border:none;border-radius:4px;font-size:14px;cursor:pointer;">共有する</button>
+  </div>
+  <p id="ws-share-msg" style="font-size:12px;color:#aaa;margin-top:4px;"></p>
+</div>
 </div>
 
 <div id="pg-types" class="scr">
@@ -923,6 +936,21 @@ function sendResults(typeNum){
   }catch(e){}
 }
 
+function shareToWorkshop(){
+  var wsId=document.getElementById('ws-id-input').value.trim().toUpperCase();
+  var wsName=document.getElementById('ws-name-input').value.trim();
+  if(!wsId){alert('ワークショップIDを入力してください');return;}
+  window._workshopId=wsId;
+  // 表示名が入力されていればユーザー名を上書き
+  if(wsName) window._wsDisplayName=wsName;
+  var msg=document.getElementById('ws-share-msg');
+  msg.style.color='#888';msg.textContent='送信中...';
+  sendResults(determineType());
+  setTimeout(function(){
+    msg.textContent='✅ '+wsId+' に共有しました！';
+    msg.style.color='#4a9';
+  },1500);
+}
 function showResults(){
   if(!validateScreen(curScreen))return;
   showScreen('pg-res');
