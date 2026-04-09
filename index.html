@@ -906,36 +906,26 @@ function sendResults(typeNum){
     var core=coreCell();
     var s=[];
     for(var ki=0;ki<5;ki++)for(var ji=0;ji<5;ji++)s.push(scores[ki][ji]);
-    var fields={
-      name: userName||"匿名",
-      type: String(typeNum),
+    var payload={
+      name: userName||'匿名',
+      type: typeNum,
       typeName: TYPES[typeNum].name,
-      lit: String(getLitCells()),
-      coreCell: KL[core.ki]+"x"+JL[core.ji]+"("+CELL_K[core.ki+"-"+core.ji]+")",
+      lit: getLitCells(),
+      coreCell: KL[core.ki]+'x'+JL[core.ji]+'('+CELL_K[core.ki+'-'+core.ji]+')',
       domK: KL[getDomK()],
       domJ: JL[getDomJ()],
-      scores: s.join("-")
+      scores: s
     };
-    var ifr=document.createElement("iframe");
-    ifr.name="gas_ifr_"+Date.now();
-    ifr.style.cssText="display:none;width:0;height:0;border:0;position:absolute";
-    document.body.appendChild(ifr);
-    var form=document.createElement("form");
-    form.method="GET";
-    form.action="https://script.google.com/macros/s/AKfycbwibPeeD6kCM1Nnltlyc410ZGFZ5UqUoNj94l6ZweWshxXjEhOkEaB_V3N8aQUe8XI/exec";
-    form.target=ifr.name;
-    form.style.display="none";
-    for(var k in fields){
-      var inp=document.createElement("input");
-      inp.type="hidden";inp.name=k;inp.value=fields[k];
-      form.appendChild(inp);
-    }
-    document.body.appendChild(form);
-    form.submit();
-    setTimeout(function(){try{document.body.removeChild(form);document.body.removeChild(ifr);}catch(e){}},6000);
+    payload.workshopId = window._workshopId || '';
+    if(window._wsDisplayName) payload.name = window._wsDisplayName;
+    fetch('https://script.google.com/macros/s/AKfycbyd1pBIMGkA8FaI9o_hNknrXGGJxCBpa1BuZq4XuWY3hU3rrqXEh8G-tOukDZ-PA101/exec',{
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    }).catch(function(){});
   }catch(e){}
 }
-
 function shareToWorkshop(){
   var wsId=document.getElementById('ws-id-input').value.trim().toUpperCase();
   var wsName=document.getElementById('ws-name-input').value.trim();
