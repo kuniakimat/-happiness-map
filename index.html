@@ -446,6 +446,18 @@ html{background:#fff!important}body{background:#fff!important;color:#111!importa
     <div class="mx-outer">
       <div class="mx-with-label">
         <div class="mx-y-label">空間相</div>
+<div id="ws-share" style="background:#f8f8f6;border:1px solid #e0ddd7;border-radius:6px;padding:16px 20px;margin:16px 0;text-align:center;">
+  <p style="font-size:12px;color:#888;margin-bottom:10px;">ワークショップに参加中の場合はIDを入力して共有</p>
+  <div style="display:flex;gap:6px;justify-content:center;align-items:center;flex-wrap:wrap;">
+    <input type="text" id="ws-name-input" placeholder="表示名（任意）" maxlength="20"
+      style="padding:8px 12px;border:1px solid #ddd;border-radius:4px;font-size:13px;width:130px;">
+    <input type="text" id="ws-id-input" placeholder="ワークショップID" maxlength="12"
+      style="padding:8px 12px;border:1px solid #ddd;border-radius:4px;font-size:13px;width:160px;text-transform:uppercase;"
+      oninput="this.value=this.value.toUpperCase()">
+    <button onclick="shareToWorkshop()" style="padding:8px 16px;background:#111;color:#fff;border:none;border-radius:4px;font-size:13px;cursor:pointer;">共有する</button>
+  </div>
+  <p id="ws-share-msg" style="font-size:12px;color:#aaa;margin-top:6px;"></p>
+</div>
         <div class="mx-table-wrap"><table class="mx-table" id="mx-table"></table></div>
       </div>
       <div class="mx-axis">← 時間相（瞬 進 頂 回 久）→</div>
@@ -514,16 +526,7 @@ html{background:#fff!important}body{background:#fff!important;color:#111!importa
     <div class="foot"><button class="btn-s" onclick="showScreen('pg-land');window.scrollTo(0,0)">← トップへ戻る</button><button class="btn-s" onclick="restart()">最初から</button></div>
   </div>
 
-<div id="ws-share" style="margin-top:32px;padding:20px 0;border-top:1px solid #eee;text-align:center;">
-  <p style="font-size:13px;color:#666;margin-bottom:12px;">ワークショップに参加している場合、ワークショップIDを入力して結果を共有できます</p>
-  <div style="display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:8px;">
-    <input type="text" id="ws-name-input" placeholder="表示名（任意）" maxlength="20"
-      style="padding:10px 14px;border:1px solid #ddd;border-radius:4px;font-size:14px;width:150px;">
-    <input type="text" id="ws-id-input" placeholder="ワークショップID" maxlength="12"
-      style="padding:10px 14px;border:1px solid #ddd;border-radius:4px;font-size:14px;width:180px;"
-      oninput="this.value=this.value.toUpperCase()">
-    <button onclick="shareToWorkshop()" style="padding:10px 18px;background:#111;color:#fff;border:none;border-radius:4px;font-size:14px;cursor:pointer;">共有する</button>
-  </div>
+
   <p id="ws-share-msg" style="font-size:12px;color:#aaa;margin-top:4px;"></p>
 </div>
 </div>
