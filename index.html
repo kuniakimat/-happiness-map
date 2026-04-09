@@ -924,6 +924,19 @@ function sendResults(typeNum){
   }catch(e){}
 }
 
+function shareToWorkshop(){
+  var id=document.getElementById('ws-id-input').value.trim().toUpperCase();
+  if(!id){alert('ワークショップIDを入力してください');return;}
+  window._workshopId=id;
+  var msg=document.getElementById('ws-share-msg');
+  msg.style.color='#888';
+  msg.textContent='送信中...';
+  sendResults(determineType());
+  setTimeout(function(){
+    msg.textContent='✅ '+id+' に共有しました！';
+    msg.style.color='#4a9';
+  },1500);
+}
 function showResults(){
   if(!validateScreen(curScreen))return;
   showScreen('pg-res');
