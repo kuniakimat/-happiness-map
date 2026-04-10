@@ -908,17 +908,8 @@ function sendResults(typeNum){
     ifr.style.cssText="display:none;width:0;height:0;border:0;position:absolute";
     document.body.appendChild(ifr);
     var form=document.createElement("form");
-    form.method="GET";
-    form.action="https://script.google.com/macros/s/AKfycbwrnVwdlc4TkMy_gBpXr-CxOYnR4uNgrvlqsQkB5ejh9-rGJVchhWziwjhg47MjvbEP/exec";
-    form.target=ifr.name;
-    form.style.display="none";
-    for(var k in fields){
-      var inp=document.createElement("input");
-      inp.type="hidden";inp.name=k;inp.value=fields[k];
-      form.appendChild(inp);
-    }
-    document.body.appendChild(form);
-    form.submit();
+    fetch("https://script.google.com/macros/s/AKfycbwrnVwdlc4TkMy_gBpXr-CxOYnR4uNgrvlqsQkB5ejh9-rGJVchhWziwjhg47MjvbEP/exec",{method:"POST",mode:"no-cors",body:JSON.stringify(payload)});
+  
     setTimeout(function(){try{document.body.removeChild(form);document.body.removeChild(ifr);}catch(e){}},6000);
   }catch(e){}
 }
