@@ -908,7 +908,7 @@ function sendResults(typeNum){
     ifr.style.cssText="display:none;width:0;height:0;border:0;position:absolute";
     document.body.appendChild(ifr);
     var form=document.createElement("form");
-    fetch("https://script.google.com/macros/s/AKfycbwrnVwdlc4TkMy_gBpXr-CxOYnR4uNgrvlqsQkB5ejh9-rGJVchhWziwjhg47MjvbEP/exec",{method:"POST",mode:"no-cors",body:JSON.stringify(payload)});
+    fetch("https://script.google.com/macros/s/AKfycbxMLE2VFQou__bYeIxmOOBS6sguW5NIDN-x7quaj9JBOlxwLnGBa5lTN2Y9fxnyaA56/exec",{method:"POST",mode:"no-cors",body:JSON.stringify(payload)});
   
     setTimeout(function(){try{document.body.removeChild(form);document.body.removeChild(ifr);}catch(e){}},6000);
   }catch(e){}
