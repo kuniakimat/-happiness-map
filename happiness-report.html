@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -123,27 +124,29 @@ section:last-child{border-bottom:none}
 
 .sec-gap{padding-top:88px}
 .apx{background:#080808;border-top:1px solid #1a1a1a}
-.num-hero{font-family:'Shippori Mincho',serif;font-size:clamp(38px,7vw,64px);font-weight:700;line-height:1;color:var(--accent)}
+.num-hero{font-family:'Shippori Mincho',serif;font-size:clamp(38px,7vw,64px);font-weight:700;line-height:1;color:var(–accent)}
 .num-label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#999;margin-top:6px;display:block}
-.chart-wrap{margin:24px 0;background:var(--bg3);border:1px solid var(--faint);padding:24px 16px 16px}
+.chart-wrap{margin:24px 0;background:var(–bg3);border:1px solid var(–faint);padding:24px 16px 16px}
 .reversal{display:grid;grid-template-columns:1fr 36px 1fr;gap:0;margin:24px 0;align-items:stretch}
-.rev-box{padding:22px 16px;background:var(--bg3);border:1px solid var(--faint)}
+.rev-box{padding:22px 16px;background:var(–bg3);border:1px solid var(–faint)}
 .rev-val{font-family:'Shippori Mincho',serif;font-size:36px;font-weight:700;line-height:1;margin:6px 0}
-.rev-label{font-size:13px;color:var(--muted);line-height:1.7}
-.rev-arrow{display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:18px;background:var(--faint)}
+.rev-label{font-size:13px;color:var(–muted);line-height:1.7}
+.rev-arrow{display:flex;align-items:center;justify-content:center;color:var(–accent);font-size:18px;background:var(–faint)}
 .lead{font-size:17px;color:#bbb;font-weight:300;line-height:1.9;margin-bottom:1.4em}
 .lead:last-child{margin-bottom:0}
 .kpi3{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin:24px 0}
-.kpi-box{padding:20px 14px;background:var(--bg3);border:1px solid var(--faint);text-align:center}
+.kpi-box{padding:20px 14px;background:var(–bg3);border:1px solid var(–faint);text-align:center}
 .kpi-n{font-family:'Shippori Mincho',serif;font-size:clamp(28px,5vw,44px);font-weight:700;line-height:1;margin-bottom:6px}
-.kpi-l{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.kpi-l{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(–muted)}
 .kpi-s{font-size:13px;color:#888;margin-top:5px;line-height:1.5}
 @media(max-width:560px){.hprops,.stat3,.nf-wrap,.types3,.kpi3,.reversal{grid-template-columns:1fr}.rev-arrow{display:none}}
 </style>
+
 </head>
 <body>
 
 <!-- HERO -->
+
 <section id="hero">
 <div class="wrap"><div class="fi">
   <div class="dtag">N=4,000 全国調査 / 2025年12月 / 広福観 — 松村モデル</div>
@@ -165,6 +168,7 @@ section:last-child{border-bottom:none}
 </section>
 
 <!-- FRAMEWORK -->
+
 <section>
 <div class="wrap fi">
   <span class="ey">フレームワーク</span>
@@ -197,7 +201,6 @@ section:last-child{border-bottom:none}
 
   <div id="fw-matrix" style="margin:24px 0"></div>
   <p style="font-size:12px;color:#888;margin-top:8px">左下が「今・ここ・自分」——幸福はここから内から外へ、瞬間から永遠へと広がる。</p>
-
 
 </div>
 </section>
@@ -261,6 +264,7 @@ section:last-child{border-bottom:none}
 </section>
 
 <!-- PROP 1 -->
+
 <section class="sec-gap">
 <div class="wrap fi">
   <span class="ey">命題①の証拠</span>
@@ -341,8 +345,8 @@ section:last-child{border-bottom:none}
 </div>
 </section>
 
-
 <!-- PROP 2 -->
+
 <section class="sec-gap">
 <div class="wrap fi">
   <span class="ey">命題②の証拠</span>
@@ -397,8 +401,8 @@ section:last-child{border-bottom:none}
 </div>
 </section>
 
-
 <!-- SHIN -->
+
 <section class="sec-gap">
 <div class="wrap fi">
   <span class="ey">核心的発見</span>
@@ -443,8 +447,8 @@ section:last-child{border-bottom:none}
 </div>
 </section>
 
-
 <!-- CTA -->
+
 <section class="sec-gap">
 <div class="wrap fi">
   <span class="ey">あなたの幸福の地図</span>
@@ -469,6 +473,7 @@ section:last-child{border-bottom:none}
 </section>
 
 <!-- APPENDIX -->
+
 <section class="apx">
 <div class="wrap fi" style="padding-top:64px;padding-bottom:32px">
   <span class="ey" style="color:#888">付属資料</span>
@@ -516,12 +521,14 @@ section:last-child{border-bottom:none}
 <div class="fn"><div class="wrap">
 <p><strong>注釈・定義</strong></p>
 <p>幸福スコア：Q10（0〜10の主観的幸福感）を1〜11スケールに変換（11-Q10）。感度の広さ：Q11/Q12各5項目で「あてはまる/ややあてはまる」（スコア≤2）の合計（0〜10）。主軸：Q13（空間相最重視）×Q14（時間相最重視）の単数回答。近感度：自・合・他（Q11）、瞬・進・頂（Q12）。遠感度：共・理（Q11）、回・久（Q12）。近軸：Q13∈{自,合,他}かつQ14∈{瞬,進,頂}。</p>
-<p>Source: 幸福に関する自主調査（2025年12月 / N=4,000 / インターネット調査 / 楽天インサイト）広福観——松村モデルによる幸福の時空マトリクス</p>　<div style="margin-top:2.5rem; padding:1.5rem 1.75rem; background:rgba(255,255,255,0.03); border-left:3px solid rgba(255,255,255,0.15); border-radius:4px; font-size:0.78rem; line-height:1.85; color:rgba(255,255,255,0.5);">
-  <strong style="color:rgba(255,255,255,0.65); display:block; margin-bottom:0.6rem; letter-spacing:0.05em;">測定論的注記</strong>
-  感度指標（Q11・Q12）と幸福度（Q10）はいずれも同一回答者・同一時点の自己報告であり、共通メソッドバイアス（CMB）の混入可能性がある。この点について事後的検討を行った。<br><br>
-  Harman単一因子検定では第1因子の説明分散は43.4%（閾値50%未満）であり、深刻なCMBは示唆されなかった。全センサー項目の平均を応答スタイル変数として統制した偏回帰分析でも、近センサー（快・共・自・継）の正の関連は維持され、外福効果（広福型比Δμ=−2.02、d=0.91）も有意に残存した（F=357.8、p&lt;.001）。収入を追加統制しても構造に変化はなかった。<br><br>
-  近センサーの優位性についても、RS統制後の回帰係数上位5位をすべて近センサーが占め（快β=0.621が最大）、近・遠間のβ平均差は有意であった（p=0.038）。広福型が近福型を上回ることも確認されたが（Δμ=+0.67、d=0.31）、効果量は小さく、広さの寄与は近を土台とした上乗せにとどまる（ΔR²=0.27%）。<br><br>
-  本調査は広福観フレームワークの初期的な実証を目的とした簡易調査であり、逆転項目の不在・横断設計という設計上の制約は残る。縦断調査・行動指標の導入・独立サンプルによる再現など、測定の精緻化を今後の重要課題と位置づけている。広福観の構造的検証に関心をもつ研究者・実務家による独立した検証や批判的検討も期待したい。
+<p>Source: 幸福に関する自主調査（2025年12月 / N=4,000 / インターネット調査 / 楽天インサイト）広福観——松村モデルによる幸福の時空マトリクス</p>
+
+<div style="margin-top:2rem;padding:1.25rem 1.5rem;background:rgba(255,255,255,.02);border-left:2px solid rgba(255,255,255,.1);border-radius:2px">
+<p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#555;margin-bottom:.8rem">測定論的注記</p>
+<p style="font-size:12px;color:#555;line-height:1.9;margin-bottom:.8rem">感度指標（Q11・Q12）と幸福度（Q10）はいずれも同一回答者・同一時点の自己報告であり、共通メソッドバイアス（CMB）の混入可能性がある。この点について事後的検討を行った。</p>
+<p style="font-size:12px;color:#555;line-height:1.9;margin-bottom:.8rem">Harman単一因子検定では第1因子の説明分散は43.4%（閾値50%未満）であり、深刻なCMBは示唆されなかった。全センサー項目の平均を応答スタイル変数として統制した偏回帰分析でも、近センサー（快・共・自・継）の正の関連は維持され、外福効果（広福型比Δμ=−2.02、d=0.91）も有意に残存した（F=357.8、p&lt;.001）。収入を追加統制しても構造に変化はなかった。</p>
+<p style="font-size:12px;color:#555;line-height:1.9;margin-bottom:.8rem">近センサーの優位性についても、RS統制後の回帰係数上位5位をすべて近センサーが占め（快β=0.621が最大）、近・遠間のβ平均差は有意であった（p=0.038）。広福型が近福型を上回ることも確認されたが（Δμ=+0.67、d=0.31）、効果量は小さく、広さの寄与は近を土台とした上乗せにとどまる（ΔR²=0.27%）。</p>
+<p style="font-size:12px;color:#555;line-height:1.9;margin-bottom:0">本調査は広福観フレームワークの初期的な実証を目的とした簡易調査であり、逆転項目の不在・横断設計という設計上の制約は残る。縦断調査・行動指標の導入・独立サンプルによる再現など、測定の精緻化を今後の重要課題と位置づけている。広福観の構造的検証に関心をもつ研究者・実務家による独立した検証や批判的検討も期待したい。</p>
 </div>
 </div></div>
 
@@ -532,7 +539,6 @@ const ROW_IDX=[4,3,2,1,0];
 const COL=['瞬','進','頂','回','久'];
 const COL_EN=['Moment','Growth','Peak','Cycle','Eternity'];
 
-// kanji + english
 const KANJI=[['快','得','誇','保','足'],['溶','創','恍','巡','愛'],['触','与','結','恩','慈'],['祭','開','栄','役','和'],['戯','学','顕','整','悟']];
 const KANJI_EN=[['Joy','Gain','Pride','Safety','Content'],['Merge','Create','Peak','Cycle','Love'],['Touch','Give','Bond','Grace','Care'],['Fest','Grow','Thrive','Role','Harmony'],['Play','Learn','Excel','Order','Insight']];
 const HAPPY=[[5.91,6.35,5.15,4.82,3.77],[5.88,6.79,6.00,5.35,4.50],[5.96,6.03,5.48,5.67,3.84],[5.06,5.57,4.79,5.29,3.50],[4.86,5.82,5.06,4.41,4.22]];
@@ -580,7 +586,6 @@ function buildMatrix(wrapId,nearFarMode){
         k.textContent=KANJI[origRi][ci];
         cell.appendChild(k);
       } else {
-        // 色なし、漢字+英語
         cell.style.cssText=`aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#111;border:1px solid #555`;
         const k=document.createElement('span');
         k.style.cssText=`font-family:'Shippori Mincho',serif;font-weight:700;line-height:1;color:#bbb;font-size:clamp(16px,3.5vw,28px)`;
@@ -606,12 +611,10 @@ function buildMatrix(wrapId,nearFarMode){
   }
 }
 
-// Mini matrix
 const MINI_ROW_IDX=[4,3,2,1,0];
 const MINI_ROW_NAMES=['理','共','他','合','自'];
 
 function buildMiniMatrix(containerId,litSet,axisCell){
-  // axisCell: {origRi, ci} で主軸位置を強調表示
   const wrap=document.getElementById(containerId);if(!wrap)return;
   const cols=`16px repeat(5,1fr)`;
   MINI_ROW_IDX.forEach((origRi,di)=>{
@@ -658,15 +661,6 @@ function nearCells(){const s=new Set();for(let r=0;r<=2;r++)for(let c=0;c<=2;c++
 function farCells(){const s=new Set();for(let r=0;r<5;r++)for(let c=0;c<5;c++)if(!(r<=2&&c<=2))s.add(r+'_'+c);return s;}
 function sacrificeCells(){const s=new Set();for(let c=0;c<5;c++){s.add('2_'+c);s.add('3_'+c);}return s;}
 function monkCells(){const s=new Set();for(let c=0;c<5;c++)s.add('4_'+c);for(let r=0;r<5;r++)s.add(r+'_4');return s;}
-function nearBroadCells(){return allCells();}
-// 軸×カバータイプ
-function nearAxisNearCoverCells(){return nearCells();}  // 近軸・近カバー
-function farAxisBroadCells(){  // 遠軸・広カバー：遠エリア中心に広くlit
-  const s=farCells();
-  // 近エリアも少し
-  for(let r=0;r<=2;r++)for(let c=0;c<=2;c++){if(Math.random()>0.4)s.add(r+'_'+c);}
-  return s;
-}
 
 function buildBreadthBarChart(){
   const el=document.getElementById('breadthBarChart');if(!el)return;
@@ -743,7 +737,6 @@ function buildUcurveChart(){
 function buildAgeSensorChart(){
   const el=document.getElementById('ageSensorChart');if(!el)return;
   const labels=['〜29歳','30代','40代','50代','60代〜'];
-  // 全10感度 開放率（%）: 自合他共理 瞬進頂回久
   const sensors=[
     {label:'自 Self',    data:[50,47,44,43,47], color:'rgba(160,160,180,.7)', dash:[]},
     {label:'合 Flow',    data:[34,26,20,17,19], color:'rgba(120,160,220,.95)',dash:[]},
@@ -780,7 +773,6 @@ function buildAgeSensorChart(){
     }
   });
 
-  // 右端にラベルを描画
   chart.options.animation = {onComplete: function(){
     const ctx2 = chart.ctx;
     ctx2.save();
@@ -802,7 +794,6 @@ function buildAgeSensorChart(){
 
 function buildTenAxisChart(){
   const el=document.getElementById('tenAxisChart');if(!el)return;
-  // [カバー効果（差）, 主導効果（主軸幸福）, ラベル, 色]
   const data=[
     {x:1.27, y:5.60, label:'自\nSelf',    color:'rgba(160,160,200,.8)'},
     {x:1.32, y:6.03, label:'合\nFlow',    color:'rgba(120,160,220,.9)'},
@@ -833,14 +824,6 @@ function buildTenAxisChart(){
             return [`${d.label.replace('\n',' ')}`,`カバー効果: +${ctx.raw.x.toFixed(2)}pt`,`主導効果: ${ctx.raw.y.toFixed(2)}`];
           }
         }}
-      },
-      plugins:{
-        annotation:{
-          annotations:{
-            avgLine:{type:'line',yMin:5.60,yMax:5.60,borderColor:'rgba(200,169,110,.3)',borderWidth:1,borderDash:[4,4],
-              label:{content:'全体平均 5.60',display:true,color:'rgba(200,169,110,.5)',font:{size:9},position:'start'}}
-          }
-        }
       },
       scales:{
         x:{min:1.1,max:2.0,grid:{color:'#1a1a1a'},
@@ -898,11 +881,6 @@ function buildShinChart(){
   }});
 }
 
-function farBroadCells(){
-  // 全セルlit、ただし遠を強調（近は薄め）
-  return allCells();
-}
-
 document.addEventListener('DOMContentLoaded',()=>{
   buildMatrix('fw-matrix',false);
   buildMatrix('fw-matrix-nearfar',true);
@@ -912,19 +890,18 @@ document.addEventListener('DOMContentLoaded',()=>{
   buildAgeSensorChart();
   buildShinChart();
   buildTenAxisChart();
-  // 3類型mini
   buildMiniMatrix('mini-narrow', nearCells());
   buildMiniMatrix('mini-outer', farCells());
   buildMiniMatrix('mini-broad', allCells());
-  // 相反仮説mini
-  buildMiniMatrix('mini-near-broad', allCells(), {origRi:0,ci:0});  // 自×瞬を主軸に
-  buildMiniMatrix('mini-far-broad', allCells(), {origRi:3,ci:3});  // 共×回を主軸に
+  buildMiniMatrix('mini-near-broad', allCells(), {origRi:0,ci:0});
+  buildMiniMatrix('mini-far-broad', allCells(), {origRi:3,ci:3});
   buildMiniMatrix('mini-sacrifice', sacrificeCells());
   buildMiniMatrix('mini-monk', monkCells());
   const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on')}),{threshold:0.08});
   document.querySelectorAll('.fi').forEach(el=>obs.observe(el));
 });
 </script>
+
 <div style="text-align:center;padding:24px 0;background:#050505">
   <a href="index.html" style="font-size:12px;color:#888;text-decoration:none;letter-spacing:.08em">広福観 — あなたの幸福地図を開く →</a>
 </div>
